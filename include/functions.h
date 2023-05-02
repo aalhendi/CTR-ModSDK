@@ -266,3 +266,4 @@ void MenuBox_Show(struct MenuBox* m);
 int DecalFont_GetLineWidth(char* str, short fontType);
 void MenuBox_DrawOuterRect_Edge(RECT* r, u_int rgb, u_int param_3, u_long* otMem);
 void MenuBox_DrawInnerRect(RECT* r, int unk, u_long* ot);
+void DrawLevelPrims_EntryFunc(void* LevRenderList, struct Camera110* c110, struct VisData* visData, struct PrimMem* primMem, int* param_5, int* param_6, void* waterEnvMap);
