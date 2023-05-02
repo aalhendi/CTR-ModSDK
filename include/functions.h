@@ -230,8 +230,8 @@ void AnimateWater2P(int timer, int count_water, struct WaterVert* waterVert, voi
 void VisData_CopyJMPsToScratchpad();
 int CreateRenderLists_1P2P(struct VisData* visData, int* visLeafList, struct TileView* tileView, u_int LevRenderList, void* bspList, char numPlyr);
 
-void DrawLevelOvr1P(void* LevRenderList, struct TileView* tileView, struct VisData* visData, struct PrimMem* primMem, void* VisMem10, void* waterEnvMap);
-void DrawLevelOvr2P(void* LevRenderList, struct TileView* tileView, struct VisData* visData, struct PrimMem* primMem, void* VisMem10, void* VisMem14, void* waterEnvMap);
+void DrawLevelOvr1P(/*void* LevRenderList, struct TileView* tileView, struct VisData* visData, struct PrimMem* primMem, void* VisMem10, void* waterEnvMap);
+void DrawLevelOvr2P(*/void* LevRenderList, struct TileView* tileView, struct VisData* visData, struct PrimMem* primMem, void* VisMem10, void* VisMem14, void* waterEnvMap);
 void DrawLevelOvr3P(void* LevRenderList, struct TileView* tileView, struct VisData* visData, struct PrimMem* primMem, void* VisMem10, void* VisMem14, void* VisMem18, void* waterEnvMap);
 void DrawLevelOvr4P(void* LevRenderList, struct TileView* tileView, struct VisData* visData, struct PrimMem* primMem, void* VisMem10, void* VisMem14, void* VisMem18, void* VisMem1C, void* waterEnvMap);
 
@@ -266,4 +266,3 @@ void MenuBox_Show(struct MenuBox* m);
 int DecalFont_GetLineWidth(char* str, short fontType);
 void MenuBox_DrawOuterRect_Edge(RECT* r, u_int rgb, u_int param_3, u_long* otMem);
 void MenuBox_DrawInnerRect(RECT* r, int unk, u_long* ot);
-void DrawLevelPrims_EntryFunc(void* LevRenderList, struct Camera110* c110, struct VisData* visData, struct PrimMem* primMem, int* param_5, int* param_6, void* waterEnvMap);

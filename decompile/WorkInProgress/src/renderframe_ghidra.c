@@ -58,7 +58,7 @@ void MainFrame_RenderFrame(struct GameTracker *gGT)
 		(!bool_menubox_mainMenuState)
 	)
 	{
-		sVar16 = data_errorPosY[sdata->errorMessagePosIndex];
+		sVar16 = data.errorPosY[sdata->errorMessagePosIndex];
 		local_40.h = 0xe;
 		if
 		(
@@ -89,7 +89,7 @@ void MainFrame_RenderFrame(struct GameTracker *gGT)
 		DecalFont_DrawLine(sdata->lngStrings[0x2b], 0x100, sVar16, FONT_SMALL, (CENTER_TEXT | ORANGE));
 		local_40.x = -0x14;
 		local_40.w = 0x228;
-		local_40.y = data_errorPosY[sdata->errorMessagePosIndex] + -3;
+		local_40.y = data.errorPosY[sdata->errorMessagePosIndex] + -3;
 		MenuBox_DrawInnerRect(&local_40, 1, (u_long *)(sdata->gGT->backBuffer->otMem).startPlusFour);
 	}
 	iVar17 = 0;
@@ -126,7 +126,7 @@ void MainFrame_RenderFrame(struct GameTracker *gGT)
 				sVar16 = -100;
 			}
 			in_stack_ffffffb0 = (void *)0xa;
-			InterpolatePosition2D_Linear(&local_38, startX, startY, sVar16, startY, iVar11, 10);
+			UI_Lerp2D_Linear(&local_38, startX, startY, sVar16, startY, iVar11, 10);
 			DecalFont_DrawLineOT(sdata->lngStrings[0x233], (int)local_38, (int)local_36, FONT_BIG, (CENTER_TEXT | ORANGE), *(u_long **)(sdata->gGT->tileView[0].filler2 + iVar20 + -4));
 			*(short *)((int)sdata->finalLapTextTimer + iVar17) = *(short *)((int)sdata->finalLapTextTimer + iVar17) + -1;
 		}
@@ -152,7 +152,7 @@ void MainFrame_RenderFrame(struct GameTracker *gGT)
 	{
 		MenuBox_CollectInput();
 	}
-	if ((sdata->ptrActiveMenuBox != 0) && (sdata->Loading_stage == 0xffffffff))
+	if ((sdata->ptrActiveMenuBox != 0) && (sdata->Loading.stage == 0xffffffff))
 	{
 		MenuBox_ProcessState();
 	}
@@ -164,8 +164,8 @@ void MainFrame_RenderFrame(struct GameTracker *gGT)
 		psVar22 = gGT;
 		do
 		{
-			Camera110_UpdateFrustum((struct TileView *)((int)gGT->db[0].drawEnv.ofs + iVar17 + -0x20));
-			psVar8 = psVar18->cameraDC[0].ptrQuadblock;
+			TileView_UpdateFrustum((struct TileView *)((int)gGT->db[0].drawEnv.ofs + iVar17 + -0x20));
+			psVar8 = psVar18->cameraDC[0].ptrQuadBlock;
 			if (psVar8 != (struct QuadBlock *)0)
 			{
 				uVar6 = (u_int)(u_char)psVar8->weather_intensity;
@@ -181,7 +181,7 @@ void MainFrame_RenderFrame(struct GameTracker *gGT)
 				}
 				*/
 				psVar22->rainBuffer[0].numParticles_max = (short)((uVar6 << 2) / uVar12);
-				uVar6 = (u_int)(u_char)(psVar18->cameraDC[0].ptrQuadblock)->weather_vanishRate;
+				uVar6 = (u_int)(u_char)(psVar18->cameraDC[0].ptrQuadBlock)->weather_vanishRate;
 				uVar12 = (u_int)(u_char)gGT->numPlyrCurrGame;
 				/*
 				if (uVar12 == 0)
@@ -203,7 +203,7 @@ void MainFrame_RenderFrame(struct GameTracker *gGT)
 	}
 	EffectSfxRain_MakeSound(gGT);
 	uVar12 = (int)sdata->frameCounter << 7;
-	uVar6 = trigTable[uVar12 & 0x3ff];
+	uVar6 = data.trigApprox[uVar12 & 0x3ff];
 	if ((uVar12 & 0x400) == 0)
 	{
 		uVar6 = uVar6 << 0x10;
@@ -245,7 +245,7 @@ void MainFrame_RenderFrame(struct GameTracker *gGT)
 		{
 			if ((bVar2 & 4) != 0)
 			{
-				CupStandings_InputAndDraw();
+				UI_CupStandings_InputAndDraw();
 			}
 		}
 		else
@@ -257,14 +257,14 @@ void MainFrame_RenderFrame(struct GameTracker *gGT)
 				{
 					if ((uVar6 & 0x8000000) == 0)
 					{
-						DrawHUD_Racing();
+						UI_RenderFrame_Racing();
 					}
 					else
 					{
-						DrawHUD_CrystalChallenge();
+						UI_RenderFrame_CrystChall();
 					}
 				}
-				else if (1 < sdata->Loading_stage + 5)
+				else if (1 < sdata->Loading.stage + 5)
 				{
 					if ((uVar6 & 0x8000000) == 0)
 					{
@@ -325,7 +325,7 @@ LAB_800367d4:
 				{
 					if (0xfff < (sdata->gGT->tileView_UI).fadeFromBlack_currentValue)
 					{
-						DrawHUD_AdvStrings();
+						UI_RenderFrame_AdvHub();
 					}
 				}
 				else
@@ -338,7 +338,7 @@ LAB_800367d4:
 					}
 					if (sdata->gGT->overlayTransition != 0)
 					{
-						INSTANCE_LevRestartLInBs(gGT->level1->ptrInstDefs, gGT->level1->numInstances);
+						INSTANCE_LevDelayedLInBs(gGT->level1->ptrInstDefs, gGT->level1->numInstances);
 						psVar18 = sdata->gGT;
 						puVar1 = &sdata->gGT->gameMode2;
 						sdata->gGT->overlayTransition = 0;
@@ -353,7 +353,7 @@ LAB_800367d4:
 	}
 	else
 	{
-		DrawIntroRaceText_1P();
+		UI_RaceStart_IntroText1P();
 	}
 	if (((gGT->renderFlags & 0x10) != 0) && ((u_char)sdata->gGT->numPlyrCurrGame < 3))
 	{
@@ -406,7 +406,7 @@ code_r0x800369d8:
 		{
 			psVar3 = psVar18->tileView;
 			psVar18 = (struct GameTracker *)(psVar18->db[1].drawEnv.dr_env.code + 0xd);
-			Camera110_SetDrawEnv_Normal((u_long *)((int)psVar3->ptrOT + 0xffc), psVar15, gGT->backBuffer, (short *)0, 0);
+			TileView_SetDrawEnv_Normal((u_long *)((int)psVar3->ptrOT + 0xffc), psVar15, gGT->backBuffer, (short *)0, 0);
 			iVar20 = iVar20 + 1;
 			psVar15 = (struct TileView *)((int)gGT->tileView[0].pos + iVar17 + -0x58);
 			iVar17 = iVar17 + 0x110;
@@ -483,9 +483,9 @@ code_r0x800369d8:
 	}
 	if ((gGT->renderFlags & 0x800) != 0)
 	{
-		DrawHeat_Main(sdata->gGT->particleList_heatWarp, gGT->tileView, &sdata->gGT->backBuffer->primMem, gGT->numPlyrCurrGame, sdata->gGT->swapchainIndex * 0x128);
+		Torch_Main(sdata->gGT->particleList_heatWarp, gGT->tileView, &sdata->gGT->backBuffer->primMem, gGT->numPlyrCurrGame, sdata->gGT->swapchainIndex * 0x128);
 	}
-	Camera110_FadeAllWindows();
+	TileView_FadeAllWindows();
 	if (((gGT->renderFlags & 1) != 0) && (playstationVar23 != (struct mesh_info *)0))
 	{
 		bVar2 = sdata->gGT->numPlyrCurrGame;
@@ -497,7 +497,7 @@ code_r0x800369d8:
 				AnimateWater2P(gGT->timer, level->count_water, level->ptr_water, level->ptr_tex_waterEnvMap, gGT->visMem1->visOVertList[0], gGT->visMem1->visOVertList[1]);
 			}
 			iVar17 = 0;
-			Visdata->CopyJMPsToScratchpad();
+			VisData_CopyJMPsToScratchpad();
 			gGT->numVisDataLinks = 0;
 			iVar19 = 0x1808;
 			iVar20 = 0x168;
@@ -514,7 +514,7 @@ code_r0x800369d8:
 			} while (iVar17 < 2);
 			iVar20 = 0;
 			iVar17 = 0x168;
-			DrawLevelPrims_EntryFunc(gGT->LevRenderLists, gGT->tileView, (struct VisData *)playstationVar23, &gGT->backBuffer->primMem, gGT->visMem1->visFaceList[0], gGT->visMem1->visFaceList[1], level->ptr_tex_waterEnvMap);
+			DrawLevelOvr1P(gGT->LevRenderLists, gGT->tileView, (struct VisData *)playstationVar23, &gGT->backBuffer->primMem, gGT->visMem1->visFaceList[0], gGT->visMem1->visFaceList[1], level->ptr_tex_waterEnvMap);
 			psVar18 = gGT;
 			do
 			{
@@ -572,11 +572,11 @@ code_r0x800369d8:
 					*(int*)0x1f800028 = iVar19 >> 8;
 					*(int*)0x1f80002c = *(int*)0x1f800018 + 0x140;
 				}
-				Visdata->CopyJMPsToScratchpad();
+				VisData_CopyJMPsToScratchpad();
 				psVar15 = gGT->tileView;
 				iVar20 = CreateRenderLists_1P2P((struct VisData *)(&playstationVar23->ptrVertexArray)[2], gGT->visMem1->visLeafList[0], psVar15, (u_int)gGT->LevRenderLists, gGT->visMem1->bspList[0], gGT->numPlyrCurrGame);
 				gGT->numVisDataLinks = iVar20;
-				DrawLevelPrims_EntryFunc(gGT->LevRenderLists, psVar15, (struct VisData *)level->ptr_mesh_info, &gGT->backBuffer->primMem, gGT->visMem1->visFaceList[0], (int *)level->ptr_tex_waterEnvMap, in_stack_ffffffb0);
+				DrawLevelOvr1P(gGT->LevRenderLists, psVar15, (struct VisData *)level->ptr_mesh_info, &gGT->backBuffer->primMem, gGT->visMem1->visFaceList[0], (int *)level->ptr_tex_waterEnvMap, in_stack_ffffffb0);
 				DrawSky_Full(level->ptr_skybox, psVar15, &gGT->backBuffer->primMem);
 				if ((level->configFlags & 1) != 0)
 				{
@@ -592,7 +592,7 @@ code_r0x800369d8:
 				AnimateWater3P(gGT->timer, level->count_water, level->ptr_water, level->ptr_tex_waterEnvMap, gGT->visMem1->visOVertList[0], gGT->visMem1->visOVertList[1], gGT->visMem1->visOVertList[2]);
 			}
 			iVar17 = 0;
-			Visdata->CopyJMPsToScratchpad();
+			VisData_CopyJMPsToScratchpad();
 			gGT->numVisDataLinks = 0;
 			iVar19 = 0x1808;
 			iVar20 = 0x168;
@@ -609,7 +609,7 @@ code_r0x800369d8:
 			} while (iVar17 < 3);
 			iVar20 = 0;
 			iVar17 = 0x168;
-			DrawLevelPrims_EntryFunc(gGT->LevRenderLists, gGT->tileView, (struct VisData *)playstationVar23, &gGT->backBuffer->primMem, gGT->visMem1->visFaceList[0], gGT->visMem1->visFaceList[1], gGT->visMem1->visFaceList[2]);
+			DrawLevelOvr1P(gGT->LevRenderLists, gGT->tileView, (struct VisData *)playstationVar23, &gGT->backBuffer->primMem, gGT->visMem1->visFaceList[0], gGT->visMem1->visFaceList[1], gGT->visMem1->visFaceList[2]);
 			psVar18 = gGT;
 			do
 			{
@@ -629,7 +629,7 @@ code_r0x800369d8:
 				AnimateWater4P(gGT->timer, level->count_water, level->ptr_water, level->ptr_tex_waterEnvMap, gGT->visMem1->visOVertList[0], gGT->visMem1->visOVertList[1], gGT->visMem1->visOVertList[2], gGT->visMem1->visOVertList[3]);
 			}
 			iVar17 = 0;
-			Visdata->CopyJMPsToScratchpad();
+			VisData_CopyJMPsToScratchpad();
 			gGT->numVisDataLinks = 0;
 			iVar19 = 0x1808;
 			iVar20 = 0x168;
@@ -646,7 +646,7 @@ code_r0x800369d8:
 			} while (iVar17 < 4);
 			iVar20 = 0;
 			iVar17 = 0x168;
-			DrawLevelPrims_EntryFunc(gGT->LevRenderLists, gGT->tileView, (struct VisData *)playstationVar23, &gGT->backBuffer->primMem, gGT->visMem1->visFaceList[0], gGT->visMem1->visFaceList[1], gGT->visMem1->visFaceList[2]);
+			DrawLevelOvr1P(gGT->LevRenderLists, gGT->tileView, (struct VisData *)playstationVar23, &gGT->backBuffer->primMem, gGT->visMem1->visFaceList[0], gGT->visMem1->visFaceList[1], gGT->visMem1->visFaceList[2]);
 			psVar18 = gGT;
 			do
 			{
@@ -668,7 +668,7 @@ code_r0x800369d8:
 			{
 				psVar3 = psVar18->tileView;
 				psVar18 = (struct GameTracker *)(psVar18->db[1].drawEnv.dr_env.code + 0xd);
-				Camera110_SetDrawEnv_Normal((u_long *)((int)psVar3->ptrOT + 0xffc), psVar15, gGT->backBuffer, (short *)0, 0);
+				TileView_SetDrawEnv_Normal((u_long *)((int)psVar3->ptrOT + 0xffc), psVar15, gGT->backBuffer, (short *)0, 0);
 				iVar20 = iVar20 + 1;
 				psVar15 = (struct TileView *)((int)gGT->tileView[0].pos + iVar17 + -0x58);
 				iVar17 = iVar17 + 0x110;
@@ -676,13 +676,13 @@ code_r0x800369d8:
 		}
 		if (((sdata->gGT->hudFlags & 1) != 0) && (1 < (u_char)sdata->gGT->numPlyrCurrGame))
 		{
-			DrawHUD_Wumpa3D_2P3P4P(gGT);
+			UI_RenderFrame_Wumpa3D_2P3P4P(gGT);
 		}
 		if (((gGT->renderFlags & 0x100) != 0) && (1 < (u_char)sdata->gGT->numPlyrCurrGame))
 		{
 			DecalMP_03(gGT);
 		}
-		if (((gGT->gameMode1 & 0x20102000) == 0) && (sdata->Loading_stage != 0xfffffffc))
+		if (((gGT->gameMode1 & 0x20102000) == 0) && (sdata->Loading.stage != 0xfffffffc))
 		{
 			DotLights_AudioAndVideo(gGT);
 		}
@@ -697,7 +697,7 @@ code_r0x800369d8:
 					local_30.y = *(short *)((int)sdata->gGT->tileView[0].matrix_ViewProj.m[-2] + iVar17 + 2);
 					local_30.w = *(short *)((int)sdata->gGT->tileView[0].matrix_ViewProj.m[-2] + iVar17 + 4);
 					local_30.h = *(short *)((int)sdata->gGT->tileView[0].matrix_ViewProj.m[-1] + iVar17);
-					DrawBoxOutline_LowLevel(&local_30, 4, 2, data_ptrColors[(sdata->gGT->drivers[iVar20]->BattleHUD).teamID + 0x18], 0, (u_long *)((int)(sdata->gGT->tileView_UI).ptrOT + 0xc));
+					MenuBox_DrawOuterRect_LowLevel(&local_30, 4, 2, data.ptrColor[(sdata->gGT->drivers[iVar20]->BattleHUD).teamID + 0x18], 0, (u_long *)((int)(sdata->gGT->tileView_UI).ptrOT + 0xc));
 					iVar20 = iVar20 + 1;
 					iVar17 = iVar17 + 0x110;
 				} while (iVar20 < (int)(u_int)(u_char)sdata->gGT->numPlyrCurrGame);
@@ -763,11 +763,11 @@ code_r0x800369d8:
 				(sdata->gGT->backBuffer->primMem).curr = (void *)((int)(sdata->gGT->backBuffer->primMem).curr + 0x18);
 			}
 		}
-		if (sdata->Loading_stage == 0xffffffff)
+		if (sdata->Loading.stage == 0xffffffff)
 		{
 			if ((sdata->gGT->gameMode1 & (PAUSE_1 | PAUSE_2 | PAUSE_3 | PAUSE_4)) == 0)
 			{
-				RivalWeapons_Update();
+				RobotcarWeapons_Update();
 			}
 			StartLine_Update();
 		}
@@ -782,9 +782,9 @@ code_r0x800369d8:
 	}
 	if ((sdata->gGT->renderFlags & 0x1000) != 0)
 	{
-		CheckeredFlag_DrawSelf();
+		TitleFlag_DrawSelf();
 	}
-	Camera110_SetDrawEnv_Normal((u_long *)((int)(gGT->tileView_UI).ptrOT + 0x10), &gGT->tileView_UI, gGT->backBuffer, (short *)0, 0);
+	TileView_SetDrawEnv_Normal((u_long *)((int)(gGT->tileView_UI).ptrOT + 0x10), &gGT->tileView_UI, gGT->backBuffer, (short *)0, 0);
 	iVar20 = RCNT_GetTime_Total();
 	psVar18 = sdata->gGT;
 	gGT->countTotalTime = iVar20;
@@ -812,7 +812,7 @@ LAB_800378d0:
 	if (gGT->frontBuffer != (struct DB *)0)
 	{
 		sdata->vsyncTillFlip = 2;
-		uVar6 = DAT_8008cff0 & 1;
+		uVar6 = sdata->boolDebugDispEnv & 1;
 		sdata->gGT->unk1cc4[5] = sdata->gGT->unk1cc4[0];
 		if (uVar6 == 0)
 		{

@@ -2604,7 +2604,7 @@ struct sData
 	char s_NO_FUNC[8];
 
 	// 8008CFF0
-	int boolDebugDispEnv;
+	u_int boolDebugDispEnv;
 
 	// 8008CFF4
 	int LevClearColorRGB[3];
@@ -2803,7 +2803,7 @@ struct sData
 		// stage = 0 - 9
 		// FUN_80033610
 		// Think back to rebuild-intros
-		int stage;
+		u_int stage;
 
 		// 8008d0fc
 		unsigned int Lev_ID_To_Load;
