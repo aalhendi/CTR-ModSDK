@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=https://json.schemastore.org/clangd.json
+If:
+  PathMatch: .*\.(c|h|C|H)
+CompileFlags:
+  Add: [-xc]
+---
+Completion:
+  HeaderInsertion: Never
+Diagnostics:
+  UnusedIncludes: None
+  MissingIncludes: None

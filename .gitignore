@@ -24,6 +24,7 @@ x64/
 data/
 packages/
 externals/
+compile_commands.json
 *.log
 offset.txt
 comport.txt
@@ -31,6 +32,7 @@ gcc_out.txt
 overlay.ld
 Makefile
 rebuild_PC/result
+rebuild_PC/build-zed/
 /result
 
 # Version tracker

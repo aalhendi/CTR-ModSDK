@@ -1,0 +1,92 @@
+[
+  {
+    "label": "lsp: refresh compile_commands",
+    "command": "uv",
+    "args": ["run", "python", "tools/dev/ctr_task.py", "lsp-refresh"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never"
+  },
+  {
+    "label": "ps1: compile decompile",
+    "command": "uv",
+    "args": ["run", "python", "tools/dev/ctr_task.py", "ps1-compile", "decompile"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never"
+  },
+  {
+    "label": "ps1: compile WorkInProgress",
+    "command": "uv",
+    "args": ["run", "python", "tools/dev/ctr_task.py", "ps1-compile", "WorkInProgress"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never"
+  },
+  {
+    "label": "ps1: extract ISO ntsc-u",
+    "command": "uv",
+    "args": ["run", "python", "tools/dev/ctr_task.py", "ps1-extract", "--version", "ntsc-u"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never"
+  },
+  {
+    "label": "ps1: build ISO ntsc-u",
+    "command": "uv",
+    "args": ["run", "python", "tools/dev/ctr_task.py", "ps1-build", "--version", "ntsc-u"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never"
+  },
+  {
+    "label": "ps1: clean",
+    "command": "uv",
+    "args": ["run", "python", "tools/dev/ctr_task.py", "ps1-clean"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never"
+  },
+  {
+    "label": "pc: configure debug",
+    "command": "uv",
+    "args": ["run", "python", "tools/dev/ctr_task.py", "pc-configure-debug"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never"
+  },
+  {
+    "label": "pc: build debug",
+    "command": "uv",
+    "args": ["run", "python", "tools/dev/ctr_task.py", "pc-build-debug"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never"
+  },
+  {
+    "label": "pc: run debug",
+    "command": "uv",
+    "args": ["run", "python", "tools/dev/ctr_task.py", "pc-run-debug"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "never"
+  }
+]
