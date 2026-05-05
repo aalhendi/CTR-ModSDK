@@ -1,0 +1,18 @@
+[project]
+name = "ctr-modsdk-dev"
+version = "0.1.0"
+description = "Local development tooling for CTR-ModSDK"
+requires-python = ">=3.10"
+dependencies = [
+  "opencv-python",
+  "pillow",
+  "pymkpsxiso",
+  "pytest",
+  "pyxdelta",
+  "requests",
+  "setuptools",
+  "wheel",
+]
+
+[tool.uv]
+package = false

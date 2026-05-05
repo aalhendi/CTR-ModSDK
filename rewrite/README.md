@@ -22,4 +22,4 @@ Each decompiled function must have an entry in `s_functions` table at `src/tests
 Note: the original function name must have the same name of the decompiled function + `ND_` prefix.
 
 # Note
-This portion of the project uses gcc 15.2, if you've installed your deps following the instructions in the psx-modding-toolchain repo, run the `mips` or `mips use <version>` command to change versions. (Note that the decomp folder uses gcc 13.1/2)
+This portion of the project uses gcc 15.2. Make sure your active `mipsel-none-elf-gcc` is the expected version before building. If you installed a version-switching wrapper, run `mips` or `mips use <version>` to change versions. (Note that the decomp folder uses gcc 13.1/2)

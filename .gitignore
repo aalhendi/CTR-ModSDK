@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+.venv/
 
 # IDE files
 .vs
@@ -45,7 +46,12 @@ tools/gcc-psyq-converted/lib/*
 !/tools/gcc-psyq-converted/include/.gitignore
 
 # Settings
+settings.json
 games/settings.json
+
+# Optional legacy PSX SDK library drops
+tools/psx/gcc-psyq-converted/
+tools/psx/minin00b/
 
 # Executables
 *.exe

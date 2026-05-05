@@ -109,8 +109,7 @@ def resolve_source_token(base_dir: Path, source_token: str) -> Iterable[Path]:
 
 
 def ps1_include_paths(root: Path, build_dir: Path, config: dict) -> list[Path]:
-    toolchain_root = root.parents[1]
-    tools_root = toolchain_root / "tools"
+    tools_root = root / "tools" / "psx"
     compiler = config["compiler"]
 
     includes = [

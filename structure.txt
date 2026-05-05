@@ -12,12 +12,12 @@ mods - Finished code modifications for CTR
 ├── Tutorials - Basic mods you can learn from
 ├── v2 - Early CTR mods
 └── Windows - Mods that require external Windows programs
-plugins - Third-party programs and extensions added to the modding toolchain. See psx-modding-toolchain's documentation for more info
+plugins - Third-party programs and extensions added to the modding toolchain
 syms - Symbol tables for all game regions
 tools - Miscellaneous tools for making mods
 8bitnop.bin
-config.json - See psx-modding-toolchain's documentation for more info
-disc.json - See psx-modding-toolchain's documentation for more info
+config.json - Game versions, external tool settings, and build-time options
+disc.json - Disc layout, ISO paths, and per-version metadata used by the builder
 nop.s
 readme.txt - You're here!
 

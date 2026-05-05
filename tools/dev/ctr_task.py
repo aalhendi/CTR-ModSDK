@@ -17,7 +17,7 @@ def sdk_root() -> Path:
 
 
 def mod_builder_path(root: Path) -> Path:
-    return root.parents[1] / "tools" / "mod-builder" / "main.py"
+    return root / "tools" / "psx" / "mod-builder" / "main.py"
 
 
 def version_index(root: Path, version: str) -> int:
@@ -34,7 +34,9 @@ def version_index(root: Path, version: str) -> int:
 def run(command: list[str], cwd: Path) -> int:
     print(f"+ {' '.join(command)}", flush=True)
     print(f"  cwd: {cwd}", flush=True)
-    return subprocess.run(command, cwd=cwd).returncode
+    env = os.environ.copy()
+    env["CTR_MODSDK_ROOT"] = str(sdk_root())
+    return subprocess.run(command, cwd=cwd, env=env).returncode
 
 
 def run_mod_builder(root: Path, cwd: Path, action: int, version: str | None = None) -> int:
@@ -49,11 +51,11 @@ def lsp_refresh(root: Path, version: str) -> int:
     return run([sys.executable, str(script), "--version", version], root)
 
 
-def ps1_compile(root: Path, target: str) -> int:
+def ps1_compile(root: Path, target: str, version: str) -> int:
     if target == "decompile":
-        return run_mod_builder(root, root / "decompile", 1)
+        return run_mod_builder(root, root / "decompile", 1, version)
     if target == "WorkInProgress":
-        return run_mod_builder(root, root / "decompile" / "WorkInProgress", 1)
+        return run_mod_builder(root, root / "decompile" / "WorkInProgress", 1, version)
     raise SystemExit("target must be 'decompile' or 'WorkInProgress'")
 
 
@@ -132,6 +134,7 @@ def main(argv: list[str] | None = None) -> int:
 
     compile_parser = subparsers.add_parser("ps1-compile", help="Compile a PS1 buildList target")
     compile_parser.add_argument("target", choices=["decompile", "WorkInProgress"])
+    compile_parser.add_argument("--version", default=DEFAULT_VERSION)
 
     extract = subparsers.add_parser("ps1-extract", help="Extract ISO through mod-builder")
     extract.add_argument("--version", default=DEFAULT_VERSION)
@@ -150,7 +153,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "lsp-refresh":
         return lsp_refresh(root, args.version)
     if args.command == "ps1-compile":
-        return ps1_compile(root, args.target)
+        return ps1_compile(root, args.target, args.version)
     if args.command == "ps1-extract":
         return ps1_extract(root, args.version)
     if args.command == "ps1-build":
