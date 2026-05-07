@@ -1,37 +1,47 @@
 #include <common.h>
 
-void DECOMP_SelectProfile_Destroy(void)
+struct SelectProfile_LoadSaveData
 {
-    char i;
-    struct Thread *t;
     struct Instance *inst;
+    short rot[3];
+    short padding;
+};
+
+struct SelectProfile_LoadSaveObj
+{
+    struct Thread *thread;
+    struct SelectProfile_LoadSaveData *loadSaveData;
+};
+
+void SelectProfile_Destroy(void)
+{
+    struct SelectProfile_LoadSaveObj *loadSaveObj =
+        (struct SelectProfile_LoadSaveObj *)sdata->ptrLoadSaveObj;
 
     // if loadsave object exists
-    if (sdata->ptrLoadSaveObj != NULL)
+    if (loadSaveObj != NULL)
     {
-        inst = (struct Instance *)sdata->ptrLoadSaveObj[1];
+        struct SelectProfile_LoadSaveData *loadSaveData =
+            loadSaveObj->loadSaveData;
+        struct Thread *t = loadSaveObj->thread;
 
         // destroy 12 instances, for LoadSave's
         // 4x trophy, 4x relic, and 4x key
 
-        for (i = 0; i < 0xc; i++)
+        for (char i = 0; i < 0xc; i++)
         {
-            if (inst->next != 0)
+            struct Instance *inst = loadSaveData[i].inst;
+
+            if (inst != NULL)
             {
-                INSTANCE_Death();
+                INSTANCE_Death(inst);
             }
-            // increment loop counter
-            inst = (int)inst + 3;
         }
 
-        // get pointer to thread, from object
-        t = (struct Thread *)sdata->ptrLoadSaveObj[0];
-
         // erase pointer to object
-        sdata->ptrLoadSaveObj = NULL;
+        sdata->ptrLoadSaveObj = 0;
 
         // 0x800 = this thread needs to be deleted
         t->flags |= 0x800;
     }
-    return;
 }
