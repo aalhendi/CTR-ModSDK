@@ -21,3 +21,4 @@ common, exe, OtherFX_RecycleMute, 0x0, src/HOWL/h123_OtherFX_RecycleMute.c, Othe
 common, exe, PlayWarppadSound, 0x0, src/HOWL/h127_PlayWarppadSound.c, PlayWarppadSound
 common, exe, EngineSound_VolumeAdjust, 0x0, src/HOWL/h135_EngineSound_VolumeAdjust.c, EngineSound_VolumeAdjust
 common, exe, RefreshCard_BoolGhostForLEV, 0x0, src/RefreshCard/RefreshCard_BoolGhostForLEV.c, RefreshCard_BoolGhostForLEV
+common, exe, RefreshCard_GetResult, 0x0, src/RefreshCard/RefreshCard_GetResult.c, RefreshCard_GetResult
