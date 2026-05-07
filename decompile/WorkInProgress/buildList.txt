@@ -52,6 +52,7 @@ common, exe, RaceConfig_SaveGameOptions, 0x0, src/RaceConfig.c, RaceConfig_SaveG
 common, exe, VehPickupItem_PotionThrow, 0x0, src/VEHICLE/VehPickupItem_PotionThrow.c, VehPickupItem_PotionThrow
 common, exe, VehPhysCrash_AI, 0x0, src/VEHICLE/VehPhysCrash_AI.c, VehPhysCrash_AI
 common, exe, VehPhysCrash_Attack, 0x0, src/VEHICLE/VehPhysCrash_Attack.c, VehPhysCrash_Attack
+common, exe, VehTurbo_ProcessBucket, 0x0, src/VEHICLE/VehTurbo_ProcessBucket.c, VehTurbo_ProcessBucket
 common, exe, UI_CupStandings_FinalizeCupRanks, 0x0, src/UI/UI_CupStandings_FinalizeCupRanks.c, UI_CupStandings_FinalizeCupRanks
 common, exe, UI_CupStandings_UpdateCupRanks, 0x0, src/UI/UI_CupStandings_UpdateCupRanks.c, UI_CupStandings_UpdateCupRanks
 common, 231, RB_MakeInstanceReflective, 0x0, src/231/RB_MakeInstanceReflective.c, RB_MakeInstanceReflective

@@ -1,33 +1,37 @@
 #include <common.h>
 
-void DECOMP_VehTurbo_ProcessBucket(struct Thread* turboThread) {
+void VehTurbo_ProcessBucket(struct Thread* turboThread) {
   u_short temp2;
   u_int temp4;
   struct Instance *driverInstance;
   struct Instance *inst;
   struct Turbo *turbo;
 
-  char numPlyr = sdata->gGT->numPlyrCurrGame;
+  if (turboThread == NULL) return;
 
-  while (turboThread != NULL) {
+  struct GameTracker *gGT = sdata->gGT;
+
+  do {
     inst = turboThread->inst;
     turbo = turboThread->object;
     driverInstance = turbo->driver->instSelf;
+
+    int numPlyr = gGT->numPlyrCurrGame;
 
     if (numPlyr) {
       struct InstDrawPerPlayer *idpp = INST_GETIDPP(inst);
       struct InstDrawPerPlayer *driveridpp = INST_GETIDPP(driverInstance);
       struct InstDrawPerPlayer *turboIdpp = INST_GETIDPP(turbo->inst);
 
+      int i = 0;
+
       // each InstDrawPerPlayer
-      for (char i = 0; i < numPlyr; i++) {
+      do {
         temp4 = driveridpp[i].instFlags;
-        // judging by 0x28 being copied to 0xb8 ?
         if ((temp4 & PUSHBUFFER_EXISTS) == 0) {
-          // flags
-          temp4 &= ~(DRAW_SUCCESSFUL); // failed
-          turboIdpp[i].instFlags |= temp4;
-          driveridpp[i].instFlags |= temp4;
+          temp4 |= ~(DRAW_SUCCESSFUL);
+          turboIdpp[i].instFlags &= temp4;
+          idpp[i].instFlags &= temp4;
 
           temp4 = driveridpp[i].unkE4;
           idpp[i].unkE4 = temp4;
@@ -45,9 +49,10 @@ void DECOMP_VehTurbo_ProcessBucket(struct Thread* turboThread) {
           idpp[i].depthOffset[1] = temp2;
           turboIdpp[i].depthOffset[1] = temp2;
         }
-      }
+        i++;
+      } while (i < numPlyr);
     }
     // go to next thread
     turboThread = turboThread->siblingThread;
-  }
+  } while (turboThread != NULL);
 }
