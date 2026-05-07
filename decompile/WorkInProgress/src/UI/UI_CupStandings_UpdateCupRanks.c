@@ -1,6 +1,6 @@
 #include <common.h>
 
-void DECOMP_UI_CupStandings_UpdateCupRanks(void)
+void UI_CupStandings_UpdateCupRanks(void)
 {
   struct GameTracker *gGT;
   int totalNumCharacters;

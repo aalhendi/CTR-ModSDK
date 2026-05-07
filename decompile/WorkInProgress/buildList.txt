@@ -37,5 +37,6 @@ common, exe, SelectProfile_AdvPickMode_MenuProc, 0x0, src/SelectProfile/SelectPr
 common, exe, TakeCupProgress_MenuProc, 0x0, src/TakeCupProgress.c, TakeCupProgress_MenuProc
 common, exe, PROC_StartSearch_Self, 0x0, src/PROC/THREAD_StartSearch_Self.c, PROC_StartSearch_Self
 common, exe, VehPhysCrash_AI, 0x0, src/VEHICLE/VehPhysCrash_AI.c, VehPhysCrash_AI
+common, exe, UI_CupStandings_UpdateCupRanks, 0x0, src/UI/UI_CupStandings_UpdateCupRanks.c, UI_CupStandings_UpdateCupRanks
 common, 231, RB_Banner_Animate_Play, 0x0, src/231/RB_Banner_Animate_Play.c, RB_Banner_Animate_Play
 common, 231, RB_Banner_ThTick, 0x0, src/231/RB_Banner_ThTick.c, RB_Banner_ThTick
