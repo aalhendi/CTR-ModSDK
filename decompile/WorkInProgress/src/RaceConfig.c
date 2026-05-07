@@ -1,5 +1,7 @@
 #include <common.h>
 
+int howl_ModeGet(void);
+
 // This still crashes the game
 #if 0
 
@@ -61,5 +63,5 @@ void RaceConfig_SaveGameOptions(void)
     options->gameMode1_0xf00 = sdata->gGT->gameMode1 & 0xf00;
 
     // store a saftery-copy of mode?
-    options->audioMode = ((howl_ModeGet() & 0xff) != 0);
+    *(short*)&options->audioMode = ((howl_ModeGet() & 0xff) != 0);
 }
