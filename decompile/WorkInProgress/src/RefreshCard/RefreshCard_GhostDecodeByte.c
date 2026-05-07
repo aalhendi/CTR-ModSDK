@@ -1,6 +1,6 @@
 #include <common.h>
 
-int RefreshCard_GhostDecodeByte(char currByte)
+int RefreshCard_GhostDecodeByte(u_char currByte)
 {
   // only called from RefreshCard_GhostDecodeProfile
 

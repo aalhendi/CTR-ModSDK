@@ -29,6 +29,7 @@ common, exe, EngineSound_VolumeAdjust, 0x0, src/HOWL/h135_EngineSound_VolumeAdju
 common, exe, RefreshCard_BoolGhostForLEV, 0x0, src/RefreshCard/RefreshCard_BoolGhostForLEV.c, RefreshCard_BoolGhostForLEV
 common, exe, RefreshCard_GetResult, 0x0, src/RefreshCard/RefreshCard_GetResult.c, RefreshCard_GetResult
 common, exe, RefreshCard_GhostEncodeByte, 0x0, src/RefreshCard/RefreshCard_GhostEncodeByte.c, RefreshCard_GhostEncodeByte
+common, exe, RefreshCard_GhostDecodeByte, 0x0, src/RefreshCard/RefreshCard_GhostDecodeByte.c, RefreshCard_GhostDecodeByte
 common, exe, RefreshCard_NextMemcardAction, 0x0, src/RefreshCard/RefreshCard_NextMemcardAction.c, RefreshCard_NextMemcardAction
 common, exe, SelectProfile_ThTick, 0x0, src/SelectProfile/SelectProfile_ThTick.c, SelectProfile_ThTick
 common, exe, SelectProfile_PrintInteger, 0x0, src/SelectProfile/SelectProfile_PrintInteger.c, SelectProfile_PrintInteger
