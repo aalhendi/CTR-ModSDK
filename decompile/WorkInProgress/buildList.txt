@@ -42,6 +42,7 @@ common, exe, SelectProfile_ToggleMode, 0x0, src/SelectProfile/SelectProfile_Togg
 common, exe, SelectProfile_AdvPickMode_MenuProc, 0x0, src/SelectProfile/SelectProfile_AdvPickMode_MenuProc.c, SelectProfile_AdvPickMode_MenuProc
 common, exe, TakeCupProgress_MenuProc, 0x0, src/TakeCupProgress.c, TakeCupProgress_MenuProc
 common, exe, PROC_StartSearch_Self, 0x0, src/PROC/THREAD_StartSearch_Self.c, PROC_StartSearch_Self
+common, exe, RaceConfig_LoadGameOptions, 0x0, src/RaceConfig_LoadGameOptions.c, RaceConfig_LoadGameOptions
 common, exe, RaceConfig_SaveGameOptions, 0x0, src/RaceConfig.c, RaceConfig_SaveGameOptions
 common, exe, VehPhysCrash_AI, 0x0, src/VEHICLE/VehPhysCrash_AI.c, VehPhysCrash_AI
 common, exe, UI_CupStandings_FinalizeCupRanks, 0x0, src/UI/UI_CupStandings_FinalizeCupRanks.c, UI_CupStandings_FinalizeCupRanks
