@@ -1,12 +1,14 @@
 #include <common.h>
 
-void Level_SoundLoopFade(int slot, u_int soundID, int desiredVolume, int fadeRate)
+void Level_SoundLoopSet(int *soundCount_ID, u_int soundID, u_int currVolume);
+
+void Level_SoundLoopFade(int *slot, u_int soundID, int desiredVolume, int fadeRate)
 {
     u_char overflow;
     int currVolume;
 
     // current volume
-    currVolume = *(int *)(slot + 8); // SoundFadeInput.currentVolume
+    currVolume = slot[2]; // SoundFadeInput.currentVolume
 
     // if current volume = desired
     if (currVolume == desiredVolume)
@@ -17,12 +19,12 @@ void Level_SoundLoopFade(int slot, u_int soundID, int desiredVolume, int fadeRat
     }
 
     // desired volume
-    *(int *)(slot + 4) = desiredVolume; // SoundFadeInput.desiredVolume
+    slot[1] = desiredVolume; // SoundFadeInput.desiredVolume
 
     if (currVolume < desiredVolume)
     {
         // increase at desired rate [param_4]
-        *(int *)(slot + 8) = currVolume + fadeRate;
+        slot[2] = currVolume + fadeRate;
 
         // if increased too far...
         overflow = desiredVolume < currVolume + fadeRate;
@@ -36,7 +38,7 @@ void Level_SoundLoopFade(int slot, u_int soundID, int desiredVolume, int fadeRat
             goto LAB_8002ea9c;
 
         // decrease at desired rate [param_4]
-        *(int *)(slot + 8) = currVolume - fadeRate;
+        slot[2] = currVolume - fadeRate;
 
         // if decreased too far...
         overflow = currVolume - fadeRate < desiredVolume;
@@ -46,19 +48,19 @@ void Level_SoundLoopFade(int slot, u_int soundID, int desiredVolume, int fadeRat
     if (overflow)
     {
         // set current to desired
-        *(int *)(slot + 8) = desiredVolume;
+        slot[2] = desiredVolume;
     }
 
 LAB_8002ea9c:
 
     Level_SoundLoopSet
     (
-        slot + 0xc, // &SoundFadeInput.soundID_soundCount
+        &slot[3], // &SoundFadeInput.soundID_soundCount
 
         // sound ID
         soundID,
 
         // current volume
-        *(u_int *)(slot + 8)  // SoundFadeInput.currentVolume
+        slot[2]  // SoundFadeInput.currentVolume
     );
 }
