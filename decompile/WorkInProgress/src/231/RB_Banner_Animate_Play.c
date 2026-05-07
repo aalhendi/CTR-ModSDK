@@ -2,20 +2,20 @@
 
 void RB_Banner_Animate_Play(struct ModelHeader* headers, short param_2)
 {
-  char bVar1;
+  u_char bVar1;
   int iVar2;
   u_int uVar3;
   u_int *puVar4;
   u_int *puVar5;
-  char *pbVar6;
-  char *pbVar8;
+  u_char *pbVar6;
+  u_char *pbVar8;
   u_int uVar9;
 
   puVar4 = headers->ptrColors;
 
   uVar9 = *puVar4;
   puVar5 = puVar4;
-  for (char i = 0; i < 64; i++) {
+  for (int i = 0; i < 63; i++) {
    puVar5 = puVar5 + 1;
     *puVar4 = *puVar5;
     puVar4 = puVar4 + 1;
@@ -23,7 +23,7 @@ void RB_Banner_Animate_Play(struct ModelHeader* headers, short param_2)
    
   *puVar4 = uVar9;
 
-  pbVar6 = (char *)(headers->ptrFrameData[headers->ptrFrameData->unk16[12]]);
+  pbVar6 = (u_char *)((char *)headers->ptrFrameData + headers->ptrFrameData->vertexOffset);
 
   pbVar8 = pbVar6 + (int)param_2 * 3;
   do
@@ -32,13 +32,13 @@ void RB_Banner_Animate_Play(struct ModelHeader* headers, short param_2)
     {
       return;
     }
-    bVar1 = *(char*)&headers->ptrColors[(*pbVar6 >> 2) + 10];
+    bVar1 = *(u_char*)&headers->ptrColors[((*pbVar6 >> 2) + 10) & 0x3f];
     uVar3 = *pbVar6;
     if (uVar3 < 0x40)
     {
       iVar2 = uVar3 << 2;
     LAB_800b5788:
-      bVar1 = (char)((bVar1 - 0x80) * iVar2 >> 8) + 0x80;
+      bVar1 = (u_char)((bVar1 - 0x80) * iVar2 >> 8) + 0x80;
     }
     else
     {
