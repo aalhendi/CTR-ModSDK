@@ -37,6 +37,7 @@ common, exe, SelectProfile_ThTick, 0x0, src/SelectProfile/SelectProfile_ThTick.c
 common, exe, SelectProfile_PrintInteger, 0x0, src/SelectProfile/SelectProfile_PrintInteger.c, SelectProfile_PrintInteger
 common, exe, SelectProfile_Destroy, 0x0, src/SelectProfile/SelectProfile_Destroy.c, SelectProfile_Destroy
 common, exe, SelectProfile_MuteCursors, 0x0, src/SelectProfile/SelectProfile_MuteCursors.c, SelectProfile_MuteCursors
+common, exe, SelectProfile_UnMuteCursors, 0x0, src/SelectProfile/SelectProfile_UnMuteCursors.c, SelectProfile_UnMuteCursors
 common, exe, SelectProfile_ToggleMode, 0x0, src/SelectProfile/SelectProfile_ToggleMode.c, SelectProfile_ToggleMode
 common, exe, SelectProfile_AdvPickMode_MenuProc, 0x0, src/SelectProfile/SelectProfile_AdvPickMode_MenuProc.c, SelectProfile_AdvPickMode_MenuProc
 common, exe, TakeCupProgress_MenuProc, 0x0, src/TakeCupProgress.c, TakeCupProgress_MenuProc
