@@ -1,11 +1,14 @@
+#include <common.h>
+
 int RefreshCard_BoolGhostForLEV(u_short trackID)
 {
-  short numGhost = 0;
+  int numGhost = 0;
 
   // if ghost profiles are present
-  if (sdata->numGhostProfilesSaved){
+  if (sdata->numGhostProfilesSaved > 0)
+  {
     // loop through ghost profiles
-    for (char i = 0; i < sdata->numGhostProfilesSaved - 1; i++)
+    for (int i = 0; i < sdata->numGhostProfilesSaved; i++)
     {
       // Check trackID of each profile
       if (sdata->ghostProfile_memcard[i].trackID == trackID)
