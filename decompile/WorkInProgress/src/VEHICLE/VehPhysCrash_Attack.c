@@ -1,5 +1,7 @@
 #include <common.h>
 
+void OtherFX_DriverCrashing(u_int boolEcho, u_int volume);
+
 int VehPhysCrash_Attack(struct Driver *driver1, struct Driver *driver2, int param_3, int param_4)
 {
     // if driver (1) is not using mask weapon
@@ -10,8 +12,8 @@ int VehPhysCrash_Attack(struct Driver *driver1, struct Driver *driver2, int para
         {
             // param_1 was hit with a mask weapon
             driver1->ChangeState_param2 = 2;
-            driver1->ChangeState_param4 = 6;
-            driver1->ChangeState_param3 = driver2;
+            *(char *)&driver1->ChangeState_param4 = 6;
+            driver1->ChangeState_param3 = (int)driver2;
 
             if (((param_3 != 0) && (driver1->kartState != KS_BLASTED)) &&
                 (driver1->invincibleTimer == 0))
@@ -40,8 +42,8 @@ int VehPhysCrash_Attack(struct Driver *driver1, struct Driver *driver2, int para
             driver2->instBubbleHold = 0;
 
             driver1->ChangeState_param2 = 2;
-            driver1->ChangeState_param4 = 0;
-            driver1->ChangeState_param3 = driver2;
+            *(char *)&driver1->ChangeState_param4 = 0;
+            driver1->ChangeState_param3 = (int)driver2;
 
             if ((param_3 != 0) &&
 
@@ -55,7 +57,7 @@ int VehPhysCrash_Attack(struct Driver *driver1, struct Driver *driver2, int para
                 OtherFX_DriverCrashing(
 
                     // if driver is supposed to echo
-                    (uint) * (u_short *)((int)driver1 + 0x2ca) & 1,
+                    (u_int) * (u_short *)((int)driver1 + 0x2ca) & 1,
 
                     0xff);
 
@@ -91,8 +93,8 @@ int VehPhysCrash_Attack(struct Driver *driver1, struct Driver *driver2, int para
             // attacked driver has been squished by attacking driver,
             // this happens when one driver uses turbo weapon on another
             driver1->ChangeState_param2 = 3;
-            driver1->ChangeState_param4 = 5;
-            driver1->ChangeState_param3 = driver2;
+            *(char *)&driver1->ChangeState_param4 = 5;
+            driver1->ChangeState_param3 = (int)driver2;
         }
     }
     return param_3;
