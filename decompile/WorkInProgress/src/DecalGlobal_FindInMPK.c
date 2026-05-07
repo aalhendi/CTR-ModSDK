@@ -1,7 +1,9 @@
 #include <common.h>
 
-int * DECOMP_DecalGlobal_FindInMPK(int* curr, int* check)
+int * DecalGlobal_FindInMPK(u_int* curr, char* str)
 {
+  u_int *check = (u_int *)str;
+
   while (*(char *)curr != 0)
   {
     // check first 16 bytes,
@@ -20,7 +22,7 @@ int * DECOMP_DecalGlobal_FindInMPK(int* curr, int* check)
         (curr[3] == check[3]))
     {
       // found the texture
-      return curr;
+      return (int *)curr;
     }
     curr += 8;
   }
