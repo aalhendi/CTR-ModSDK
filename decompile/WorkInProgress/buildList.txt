@@ -50,6 +50,7 @@ common, exe, PROC_StartSearch_Self, 0x0, src/PROC/THREAD_StartSearch_Self.c, PRO
 common, exe, RaceConfig_LoadGameOptions, 0x0, src/RaceConfig_LoadGameOptions.c, RaceConfig_LoadGameOptions
 common, exe, RaceConfig_SaveGameOptions, 0x0, src/RaceConfig.c, RaceConfig_SaveGameOptions
 common, exe, VehPickupItem_PotionThrow, 0x0, src/VEHICLE/VehPickupItem_PotionThrow.c, VehPickupItem_PotionThrow
+common, exe, VehPhysCrash_ConvertVecToSpeed, 0x0, src/VEHICLE/VehPhysCrash_ConvertVecToSpeed.c, VehPhysCrash_ConvertVecToSpeed
 common, exe, VehPhysCrash_AI, 0x0, src/VEHICLE/VehPhysCrash_AI.c, VehPhysCrash_AI
 common, exe, VehPhysCrash_Attack, 0x0, src/VEHICLE/VehPhysCrash_Attack.c, VehPhysCrash_Attack
 common, exe, VehTurbo_ProcessBucket, 0x0, src/VEHICLE/VehTurbo_ProcessBucket.c, VehTurbo_ProcessBucket
