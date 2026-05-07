@@ -29,5 +29,6 @@ common, exe, RefreshCard_GetResult, 0x0, src/RefreshCard/RefreshCard_GetResult.c
 common, exe, RefreshCard_NextMemcardAction, 0x0, src/RefreshCard/RefreshCard_NextMemcardAction.c, RefreshCard_NextMemcardAction
 common, exe, SelectProfile_PrintInteger, 0x0, src/SelectProfile/SelectProfile_PrintInteger.c, SelectProfile_PrintInteger
 common, exe, TakeCupProgress_MenuProc, 0x0, src/TakeCupProgress.c, TakeCupProgress_MenuProc
+common, exe, PROC_StartSearch_Self, 0x0, src/PROC/THREAD_StartSearch_Self.c, PROC_StartSearch_Self
 common, 231, RB_Banner_Animate_Play, 0x0, src/231/RB_Banner_Animate_Play.c, RB_Banner_Animate_Play
 common, 231, RB_Banner_ThTick, 0x0, src/231/RB_Banner_ThTick.c, RB_Banner_ThTick

@@ -1,12 +1,12 @@
 #include <common.h>
 
-void DECOMP_PROC_StartSearch_Self(struct ScratchpadStruct* param)
+void PROC_StartSearch_Self(struct ScratchpadStruct* param)
 {
   struct GameTracker* gGT = sdata->gGT;
   short sVar1;
 
   // box half-length
-  sVar1 = param->hitRadius;
+  sVar1 = param->Input1.hitRadius;
 
   // Make hitbox, min and max x,y,z
   param->Union.ThBuckColl.min[0] = param->Input1.pos[0] - sVar1;
@@ -18,8 +18,7 @@ void DECOMP_PROC_StartSearch_Self(struct ScratchpadStruct* param)
 
   COLL_SearchBSP_CallbackPARAM(
 	gGT->level1->ptr_mesh_info->bspRoot,
-	param->funcCallback,
-	PROC_PerBspLeaf_CheckInstances, /*??? param here*/);
-  
-  return;
+	(struct BoundingBox*)&param->Union.ThBuckColl.min[0],
+	PROC_PerBspLeaf_CheckInstances,
+	(short*)param);
 }
