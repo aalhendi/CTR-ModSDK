@@ -1,6 +1,6 @@
 #include <common.h>
 
-void DECOMP_SelectProfile_AdvPickMode_MenuProc(struct RectMenu* menu)
+void SelectProfile_AdvPickMode_MenuProc(struct RectMenu* menu)
 {
     // if have not chosen any option
     // if you see current profile, and load/save/delete/exit rows
@@ -27,14 +27,14 @@ void DECOMP_SelectProfile_AdvPickMode_MenuProc(struct RectMenu* menu)
         return;
     }
 
-    // if row is not 3, invalid row
-    if (row != 3)
+    // if row is not -1 or 3, invalid row
+    if ((row != -1) && (row != 3))
     {
         return;
     }
 
     // make Menu invisible
-    RECTMENU_Hide(mb);
+    RECTMENU_Hide(menu);
 
     // SelectProfile_Destroy
     SelectProfile_Destroy();
