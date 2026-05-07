@@ -2,7 +2,7 @@
 
 void Level_SoundLoopSet(int *soundCount_ID, u_int soundID, u_int currVolume)
 {
-    int soundID;
+    int soundID_count;
 
     if (currVolume == 0)
     {
@@ -16,7 +16,7 @@ void Level_SoundLoopSet(int *soundCount_ID, u_int soundID, u_int currVolume)
     {
         if (*soundCount_ID == 0)
         {
-            soundID = OtherFX_Play_LowLevel(
+            soundID_count = OtherFX_Play_LowLevel(
 
                 // sound ID
                 soundID & 0xffff, 0,
@@ -28,7 +28,7 @@ void Level_SoundLoopSet(int *soundCount_ID, u_int soundID, u_int currVolume)
                 0x8080);
 
             // save soundID with soundCount
-            *soundCount_ID = soundID;
+            *soundCount_ID = soundID_count;
         }
         // if already playing
         else
