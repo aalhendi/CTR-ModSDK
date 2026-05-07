@@ -1,6 +1,6 @@
 #include <common.h> 
 
-void DECOMP_SelectProfile_MuteCursors(void)
+void SelectProfile_MuteCursors(void)
 {
   data.menuFourAdvProfiles.state |= MUTE_SOUND_OF_MOVING_CURSOR;
 
