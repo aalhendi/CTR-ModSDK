@@ -1,7 +1,7 @@
 #include <common.h>
 
 // water droplets in Roo's Tubes
-void Level_RandomFX(int *param_1, u_int soundID, int param_3, uint param_4, int param_5)
+void Level_RandomFX(int *param_1, u_int soundID, int param_3, u_int param_4, int param_5)
 {
     // deref
     int cooldown = *param_1;

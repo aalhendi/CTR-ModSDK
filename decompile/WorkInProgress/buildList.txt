@@ -21,6 +21,7 @@ common, exe, OtherFX_RecycleMute, 0x0, src/HOWL/h123_OtherFX_RecycleMute.c, Othe
 common, exe, OtherFX_DriverCrashing, 0x0, src/HOWL/h124_OtherFX_DriverCrashing.c, OtherFX_DriverCrashing
 common, exe, PlayWarppadSound, 0x0, src/HOWL/h127_PlayWarppadSound.c, PlayWarppadSound
 common, exe, Level_SoundLoopSet, 0x0, src/HOWL/h128_Level_SoundLoopSet.c, Level_SoundLoopSet
+common, exe, Level_RandomFX, 0x0, src/HOWL/h130_Level_RandomFX.c, Level_RandomFX
 common, exe, EngineSound_VolumeAdjust, 0x0, src/HOWL/h135_EngineSound_VolumeAdjust.c, EngineSound_VolumeAdjust
 common, exe, RefreshCard_BoolGhostForLEV, 0x0, src/RefreshCard/RefreshCard_BoolGhostForLEV.c, RefreshCard_BoolGhostForLEV
 common, exe, RefreshCard_GetResult, 0x0, src/RefreshCard/RefreshCard_GetResult.c, RefreshCard_GetResult
