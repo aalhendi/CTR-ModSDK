@@ -18,6 +18,7 @@
 common, 233, CS_Thread_UseOpcode, 0x0, src/233/233_14_CS_Thread_UseOpcode.c, CS_Thread_UseOpcode
 common, exe, CAM_StartLine_FlyIn_FixY, 0x0, src/CAM/CAM_09_StartLine_FlyIn_FixY.c, CAM_StartLine_FlyIn_FixY
 common, exe, CAM_MapRange_PosPoints, 0x0, src/CAM/CAM_18_MapRange_PosPoints.c, CAM_MapRange_PosPoints
+common, exe, DecalGlobal_FindInLEV, 0x0, src/DecalGlobal_Find.c, DecalGlobal_FindInLEV
 common, exe, DecalGlobal_FindInMPK, 0x0, src/DecalGlobal_FindInMPK.c, DecalGlobal_FindInMPK
 common, exe, CTR_CycleTex_2p3p4pWumpaHUD, 0x0, src/CTR/CTR_CycleTex_2p3p4pWumpaHUD.c, CTR_CycleTex_2p3p4pWumpaHUD
 common, exe, CTR_ClearRenderLists_1P2P, 0x0, src/CTR/CTR_ClearRenderLists_1P2P.c, CTR_ClearRenderLists_1P2P
