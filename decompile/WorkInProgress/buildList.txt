@@ -18,6 +18,7 @@
 common, 233, CS_Thread_UseOpcode, 0x0, src/233/233_14_CS_Thread_UseOpcode.c, CS_Thread_UseOpcode
 common, exe, CTR_CycleTex_2p3p4pWumpaHUD, 0x0, src/CTR/CTR_CycleTex_2p3p4pWumpaHUD.c, CTR_CycleTex_2p3p4pWumpaHUD
 common, exe, OtherFX_RecycleMute, 0x0, src/HOWL/h123_OtherFX_RecycleMute.c, OtherFX_RecycleMute
+common, exe, OtherFX_DriverCrashing, 0x0, src/HOWL/h124_OtherFX_DriverCrashing.c, OtherFX_DriverCrashing
 common, exe, PlayWarppadSound, 0x0, src/HOWL/h127_PlayWarppadSound.c, PlayWarppadSound
 common, exe, EngineSound_VolumeAdjust, 0x0, src/HOWL/h135_EngineSound_VolumeAdjust.c, EngineSound_VolumeAdjust
 common, exe, RefreshCard_BoolGhostForLEV, 0x0, src/RefreshCard/RefreshCard_BoolGhostForLEV.c, RefreshCard_BoolGhostForLEV
