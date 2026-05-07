@@ -39,6 +39,7 @@ common, exe, PROC_StartSearch_Self, 0x0, src/PROC/THREAD_StartSearch_Self.c, PRO
 common, exe, VehPhysCrash_AI, 0x0, src/VEHICLE/VehPhysCrash_AI.c, VehPhysCrash_AI
 common, exe, UI_CupStandings_FinalizeCupRanks, 0x0, src/UI/UI_CupStandings_FinalizeCupRanks.c, UI_CupStandings_FinalizeCupRanks
 common, exe, UI_CupStandings_UpdateCupRanks, 0x0, src/UI/UI_CupStandings_UpdateCupRanks.c, UI_CupStandings_UpdateCupRanks
+common, 231, RB_MakeInstanceReflective, 0x0, src/231/RB_MakeInstanceReflective.c, RB_MakeInstanceReflective
 common, 231, RB_Banner_Animate_Play, 0x0, src/231/RB_Banner_Animate_Play.c, RB_Banner_Animate_Play
 common, 231, RB_Banner_ThTick, 0x0, src/231/RB_Banner_ThTick.c, RB_Banner_ThTick
 common, 231, RB_Banner_LInB, 0x0, src/231/RB_Banner_LInB.c, RB_Banner_LInB
