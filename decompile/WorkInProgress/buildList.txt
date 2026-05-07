@@ -26,5 +26,6 @@ common, exe, Level_RandomFX, 0x0, src/HOWL/h130_Level_RandomFX.c, Level_RandomFX
 common, exe, EngineSound_VolumeAdjust, 0x0, src/HOWL/h135_EngineSound_VolumeAdjust.c, EngineSound_VolumeAdjust
 common, exe, RefreshCard_BoolGhostForLEV, 0x0, src/RefreshCard/RefreshCard_BoolGhostForLEV.c, RefreshCard_BoolGhostForLEV
 common, exe, RefreshCard_GetResult, 0x0, src/RefreshCard/RefreshCard_GetResult.c, RefreshCard_GetResult
+common, exe, RefreshCard_NextMemcardAction, 0x0, src/RefreshCard/RefreshCard_NextMemcardAction.c, RefreshCard_NextMemcardAction
 common, exe, SelectProfile_PrintInteger, 0x0, src/SelectProfile/SelectProfile_PrintInteger.c, SelectProfile_PrintInteger
 common, 231, RB_Banner_ThTick, 0x0, src/231/RB_Banner_ThTick.c, RB_Banner_ThTick

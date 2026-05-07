@@ -1,9 +1,7 @@
 #include <common.h>
 
-void RefreshCard_NextMemcardAction(u_short memcardSlot, u_short memcardAction, u_char* filename, u_char* memcardIcon, struct GhostHeader* ghost, u_short filesize)
+void RefreshCard_NextMemcardAction(short memcardSlot, short memcardAction, u_char* filename, u_char* memcardIcon, struct GhostHeader* ghost, short filesize)
 {
-  sdata->memcardUnk1 &= ~(0x8);
-
   sdata->frame2_memcardAction = memcardAction;
   sdata->frame2_memcardSlot = memcardSlot;
 
@@ -15,6 +13,8 @@ void RefreshCard_NextMemcardAction(u_short memcardSlot, u_short memcardAction, u
 
   // Save icon (crash/ghost/psyqhand)
   sdata->ghostProfile_fileIconHeader = memcardIcon;
+
+  sdata->memcardUnk1 &= ~(0x8);
 
   // pointer to ghostHeader (not memcard)
   sdata->ghostProfile_ptrGhostHeader = ghost;
