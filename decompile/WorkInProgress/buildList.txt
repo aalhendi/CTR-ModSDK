@@ -27,6 +27,7 @@ common, exe, Level_SoundLoopSet, 0x0, src/HOWL/h128_Level_SoundLoopSet.c, Level_
 common, exe, Level_SoundLoopFade, 0x0, src/HOWL/h129_Level_SoundLoopFade.c, Level_SoundLoopFade
 common, exe, Level_RandomFX, 0x0, src/HOWL/h130_Level_RandomFX.c, Level_RandomFX
 common, exe, EngineSound_VolumeAdjust, 0x0, src/HOWL/h135_EngineSound_VolumeAdjust.c, EngineSound_VolumeAdjust
+common, exe, MainInit_RainBuffer, 0x0, src/MAIN/MainInit_RainBuffer.c, MainInit_RainBuffer
 common, exe, RefreshCard_BoolGhostForLEV, 0x0, src/RefreshCard/RefreshCard_BoolGhostForLEV.c, RefreshCard_BoolGhostForLEV
 common, exe, RefreshCard_GetResult, 0x0, src/RefreshCard/RefreshCard_GetResult.c, RefreshCard_GetResult
 common, exe, RefreshCard_GhostEncodeByte, 0x0, src/RefreshCard/RefreshCard_GhostEncodeByte.c, RefreshCard_GhostEncodeByte

@@ -2,9 +2,10 @@
 
 void MainInit_RainBuffer(struct GameTracker *gGT)
 {
-    char i;
-    char numPlyr;
-    int* src, dst;
+    int i;
+    u_char numPlyr;
+    int* src;
+    int* dst;
     struct RainBuffer *levelBuffer;
     struct RainBuffer *globalBuffer;
 
@@ -24,7 +25,7 @@ void MainInit_RainBuffer(struct GameTracker *gGT)
             src = (int*)levelBuffer;
             dst = (int*)globalBuffer;
 
-            while(src != ((int)levelBuffer + sizeof(struct RainBuffer)))
+            while(src != (int*)((int)levelBuffer + sizeof(struct RainBuffer)))
             {  
                 dst[0] = src[0];
                 dst[1] = src[1];
@@ -34,15 +35,9 @@ void MainInit_RainBuffer(struct GameTracker *gGT)
                 dst += 4;
             }
 
-            // if there are zero screens, crash the game
-            if (!numPlyr)
-                trap(0x1c00);
-
-            // if there are -1 screens, crash the game
-            if ((numPlyr == -1) && ((gGT->rainBuffer[i].numParticles_curr == -0x80000000) || (gGT->rainBuffer[i].numParticles_curr == 0x80000000)))
-                trap(0x1800);
-
             gGT->rainBuffer[i].numParticles_curr /= numPlyr;
+            gGT->rainBuffer[i].numParticles_max =
+                (u_short)gGT->rainBuffer[i].numParticles_max / numPlyr;
         }
     }
 }
