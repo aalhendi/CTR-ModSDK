@@ -1,6 +1,6 @@
 #include <common.h>
 
-void DECOMP_TakeCupProgress_MenuProc(struct RectMenu* menu)
+void TakeCupProgress_MenuProc(struct RectMenu* menu)
 {
     if (menu->unk1e == 1)
     {
@@ -40,10 +40,10 @@ void DECOMP_TakeCupProgress_MenuProc(struct RectMenu* menu)
         else
         {
             // invalid row
-            if ((row != -1) || (row != 1)) return;
+            if ((row != -1) && (row != 1)) return;
             
             // Make the menu disappear
-            RECTMENU_Hide(mb);
+            RECTMENU_Hide(menu);
         }
     }
 }
