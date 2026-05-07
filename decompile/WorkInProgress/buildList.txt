@@ -18,3 +18,4 @@
 common, 233, CS_Thread_UseOpcode, 0x0, src/233/233_14_CS_Thread_UseOpcode.c, CS_Thread_UseOpcode
 common, exe, OtherFX_RecycleMute, 0x0, src/HOWL/h123_OtherFX_RecycleMute.c, OtherFX_RecycleMute
 common, exe, PlayWarppadSound, 0x0, src/HOWL/h127_PlayWarppadSound.c, PlayWarppadSound
+common, exe, EngineSound_VolumeAdjust, 0x0, src/HOWL/h135_EngineSound_VolumeAdjust.c, EngineSound_VolumeAdjust
