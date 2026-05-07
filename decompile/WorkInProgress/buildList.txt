@@ -41,3 +41,4 @@ common, exe, UI_CupStandings_FinalizeCupRanks, 0x0, src/UI/UI_CupStandings_Final
 common, exe, UI_CupStandings_UpdateCupRanks, 0x0, src/UI/UI_CupStandings_UpdateCupRanks.c, UI_CupStandings_UpdateCupRanks
 common, 231, RB_Banner_Animate_Play, 0x0, src/231/RB_Banner_Animate_Play.c, RB_Banner_Animate_Play
 common, 231, RB_Banner_ThTick, 0x0, src/231/RB_Banner_ThTick.c, RB_Banner_ThTick
+common, 231, RB_Banner_LInB, 0x0, src/231/RB_Banner_LInB.c, RB_Banner_LInB

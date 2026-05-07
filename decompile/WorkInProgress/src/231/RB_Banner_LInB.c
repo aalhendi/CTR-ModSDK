@@ -1,15 +1,15 @@
 #include <common.h>
 
 void RB_Banner_ThTick(struct Thread* t);
+int RB_Banner_Animate_Init(struct ModelHeader *headers);
 
 void RB_Banner_LInB(struct Instance* inst)
 {
   struct Thread *t;
   u_int angle;
-  char approx;
-  int iVar5;
-  char *pcVar6;
-  char *bannerColor;
+  u_char approx;
+  u_char *pcVar6;
+  u_char *bannerColor;
   struct Model* m;
   struct StartBanner *banner;
 
@@ -66,7 +66,7 @@ void RB_Banner_LInB(struct Instance* inst)
 
         if ((angle & 0xffff) != 0)
         {
-          bannerColor = inst->model->headers->ptrColors;
+          bannerColor = (u_char *)inst->model->headers->ptrColors;
 
           pcVar6 = bannerColor + 1;
 
@@ -74,12 +74,12 @@ void RB_Banner_LInB(struct Instance* inst)
           {
             angle = (i << 0x10) >> 9;
 
-            approx = (char)(MATH_Sin(angle) >> 6) - 0x80;
+            approx = (u_char)((MATH_Sin(angle) >> 6) + 0x80);
 
             // if more than 3 screens
             if (3 < gGT->numPlyrCurrGame)
             {
-              approx = -0x80;
+              approx = 0x80;
             }
 
             pcVar6[1] = approx;
