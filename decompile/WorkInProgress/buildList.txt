@@ -49,6 +49,7 @@ common, exe, TakeCupProgress_MenuProc, 0x0, src/TakeCupProgress.c, TakeCupProgre
 common, exe, PROC_StartSearch_Self, 0x0, src/PROC/THREAD_StartSearch_Self.c, PROC_StartSearch_Self
 common, exe, RaceConfig_LoadGameOptions, 0x0, src/RaceConfig_LoadGameOptions.c, RaceConfig_LoadGameOptions
 common, exe, RaceConfig_SaveGameOptions, 0x0, src/RaceConfig.c, RaceConfig_SaveGameOptions
+common, exe, VehPickupItem_PotionThrow, 0x0, src/VEHICLE/VehPickupItem_PotionThrow.c, VehPickupItem_PotionThrow
 common, exe, VehPhysCrash_AI, 0x0, src/VEHICLE/VehPhysCrash_AI.c, VehPhysCrash_AI
 common, exe, UI_CupStandings_FinalizeCupRanks, 0x0, src/UI/UI_CupStandings_FinalizeCupRanks.c, UI_CupStandings_FinalizeCupRanks
 common, exe, UI_CupStandings_UpdateCupRanks, 0x0, src/UI/UI_CupStandings_UpdateCupRanks.c, UI_CupStandings_UpdateCupRanks
