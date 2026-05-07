@@ -6,12 +6,11 @@ void SelectProfile_PrintInteger(int integer,short posX,short posY,short fmt,u_sh
   char string [64];
   
   if (fmt == 1) {
-    format = sdata.stringFormat1[0];
+    format = sdata->stringFormat1;
   }
   else {
-    format = sdata.stringFormat2[0];
+    format = sdata->stringFormat2;
   }
   sprintf(string,format,integer);
   DecalFont_DrawLine(string,posX,posY,1,flags);
 }
-
